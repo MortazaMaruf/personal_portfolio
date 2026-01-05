@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
-import Heading from './heading'
+import Heading from './Heading'
 import About from './About'
 import Project from './Project'
 import Contact from './Contact'
