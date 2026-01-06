@@ -39,8 +39,8 @@ const Heading = () => {
         {/* CV Button */}
         <div className="mt-6">
           <a
-            href="../../public/CV/marufCV.pdf"
-            download
+            href="/CV/marufCV.pdf"
+            download="marufCV.pdf"
             className="inline-flex items-center gap-2 px-6 py-2 border border-[#DF5E04] rounded-xl text-white hover:bg-[#DF5E04] transition-all duration-200"
           >
             Download CV <MdOutlineFileDownload size={25} />
