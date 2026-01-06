@@ -2,10 +2,13 @@
 import React from 'react'
 import Title from './Title'
 import Progress from './Progress'
+import AnimatedImage from './AnimateImage'
+import aboutImg from '../photo/aboutphoto.jpeg'
+
 
 const About = () => {
   return (
-    <div className="w-11/12 mx-auto text-white md:py-0 py-20">
+    <div className="w-11/12 mx-auto text-white md:py-0 py-30">
       {/* Section Title */}
       <Title text="About Me" />
       <h2 className="mt-2 text-xl md:text-2xl text-[#DF5E04] capitalize">
@@ -13,10 +16,11 @@ const About = () => {
       </h2>
 
       {/* Content */}
-      <div className="flex flex-col md:flex-row items-center justify-between mt-10 gap-10">
+      <div className="flex flex-col md:flex-row items-center justify-between mt-20 gap-10">
         {/* Left: Illustration / image placeholder */}
         <div className="left flex-1 flex justify-center">
-          <div className="sm:h-64 lg:h-100 w-full max-w-sm bg-gray-800/40 rounded-t-full rounded-b-2xl"></div>
+        
+                  <AnimatedImage Img={aboutImg}/>
         </div>
 
         {/* Right: About text */}

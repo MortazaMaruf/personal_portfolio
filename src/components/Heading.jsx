@@ -1,8 +1,9 @@
 
 import React from 'react'
+import AnimatedImage from './AnimateImage'
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa"
 import { MdOutlineFileDownload } from "react-icons/md"
-// import headingImg from '../photo/removebgbw.png'
+import headingImg from '../photo/headingphoto.jpeg'
 import { Typewriter } from 'react-simple-typewriter'
 
 const Heading = () => {
@@ -62,13 +63,8 @@ const Heading = () => {
 
       {/* Right Side */}
       <div className="right flex-1 flex justify-center items-center mt-10 md:mt-0">
-        <div className="relative w-64 h-64 md:w-96 md:h-96 rounded-full bg-gray-800/40 flex items-center justify-center overflow-hidden">
-          <img
-            src=''
-            alt="Hero"
-            className="w-full h-full object-contain rounded-full"
-          />
-        </div>
+       
+        <AnimatedImage Img={headingImg}/>
       </div>
 
     </div>

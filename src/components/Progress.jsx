@@ -68,7 +68,7 @@ const Progress = () => {
 
   return (
     <div className="mt-12 md:mt-2" ref={ref}>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:gap-10">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 lg:gap-10">
         {skills.map((skill, index) => (
           <div key={index} className="flex flex-col items-center gap-6">
             {/* Icon */}
@@ -80,7 +80,7 @@ const Progress = () => {
             <h1 className="uppercase text-lg font-semibold">{skill.name}</h1>
 
             {/* Progress Bar */}
-            <div className="w-full bg-gray-600 h-3 rounded-full overflow-hidden mt-2">
+            <div className="w-full  bg-gray-600 h-3 rounded-full overflow-hidden mt-4">
               <motion.div
                 className={`${skill.color} h-3 rounded-full`}
                 custom={index}
@@ -90,7 +90,7 @@ const Progress = () => {
             </div>
 
             {/* Percentage */}
-            <span className="text-sm font-medium mt-1">{skill.percentage}%</span>
+            <span className="text-sm font-medium mb-3">{skill.percentage}%</span>
           </div>
         ))}
       </div>

@@ -1,25 +1,55 @@
-
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link as ScrollLink } from 'react-scroll'
-import { FaGithub, FaBars, FaTimes } from "react-icons/fa";
+import { FaGithub, FaBars, FaTimes } from "react-icons/fa"
 import './Navbar.css'
 
 const Navbar = () => {
-  const [active, setActive] = useState('home');
-  const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState('home')
+  const [isOpen, setIsOpen] = useState(false)
 
   const links = [
     { name: 'Home', to: 'home' },
     { name: 'About Me', to: 'about' },
     { name: 'Projects', to: 'projects' },
     { name: 'Contact Me', to: 'contact' },
-  ];
+  ]
+
+  // Offset for scroll link
+  const getOffset = () => (window.innerWidth < 768 ? -60 : -80)
+
+  // Scroll listener for active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + Math.abs(getOffset()) + 5
+      const windowBottom = window.scrollY + window.innerHeight
+      const sections = links.map(link => document.getElementById(link.to))
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (sections[i]) {
+          // Last section detection
+          if (windowBottom >= sections[i].offsetTop + sections[i].offsetHeight / 2) {
+            setActive(links[i].to)
+            break
+          } else if (scrollPos >= sections[i].offsetTop) {
+            setActive(links[i].to)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div className='bg-[#121212] border-b border-[#DF5E04] fixed w-full z-50'>
       <div className='w-11/12 mx-auto flex items-center justify-between py-3'>
         {/* Logo */}
-        <div className='cursor-pointer hover:text-[#84A98C] text-[#DF5E04]'>
+        <div
+          className='cursor-pointer hover:text-[#84A98C] text-[#DF5E04]'
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
           <h1 className='text-2xl logo tracking-tighter'>mortaza.</h1>
           <h1 className='text-5xl logo tracking-tighter'>maruf.</h1>
         </div>
@@ -32,9 +62,7 @@ const Navbar = () => {
               to={link.to}
               smooth={true}
               duration={500}
-              offset={-80}
-              spy={true}
-              onSetActive={() => setActive(link.to)}
+              offset={getOffset()}
               className={`cursor-pointer transition-all duration-200 ${
                 active === link.to ? 'text-[#84A98C]' : 'hover:text-[#DF5E04]'
               }`}
@@ -44,21 +72,31 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Github icon */}
-        <nav className='hidden md:flex text-white'>
+        {/* GitHub icon */}
+        <a
+          className='text-white hidden md:flex hover:text-[#DF5E04] transition-all duration-200'
+          href="https://github.com/MortazaMaruf"
+          target='_blank'
+          rel="noreferrer"
+        >
+          <FaGithub size={25} />
+        </a>
+
+        {/* Mobile Menu Button */}
+        <div className='md:hidden flex items-center gap-6'>
+          {/* GitHub icon for mobile */}
           <a
-            className='hover:text-[#DF5E04] transition-all duration-200'
+            className='text-white hover:text-[#DF5E04] transition-all duration-200'
             href="https://github.com/MortazaMaruf"
             target='_blank'
             rel="noreferrer"
           >
             <FaGithub size={25} />
           </a>
-        </nav>
 
-        {/* Mobile Menu Button */}
-        <div className='md:hidden text-white text-2xl' onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <FaTimes /> : <FaBars />}
+          <div className='text-2xl' onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
       </div>
 
@@ -71,10 +109,8 @@ const Navbar = () => {
               to={link.to}
               smooth={true}
               duration={500}
-              offset={-80}
-              spy={true}
-              onSetActive={() => setActive(link.to)}
-              onClick={() => setIsOpen(false)} // close menu on click
+              offset={getOffset()}
+              onClick={() => setIsOpen(false)}
               className={`cursor-pointer text-xl transition-all duration-200 ${
                 active === link.to ? 'text-[#84A98C]' : 'hover:text-[#DF5E04]'
               }`}
@@ -82,15 +118,6 @@ const Navbar = () => {
               {link.name}
             </ScrollLink>
           ))}
-
-          <a
-            className='hover:text-[#DF5E04] transition-all duration-200 text-xl'
-            href="https://github.com/MortazaMaruf"
-            target='_blank'
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
         </div>
       )}
     </div>
