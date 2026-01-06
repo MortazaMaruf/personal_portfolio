@@ -5,7 +5,7 @@ import Progress from './Progress'
 
 const About = () => {
   return (
-    <div className="w-11/12 mx-auto text-white lg:py-20">
+    <div className="w-11/12 mx-auto text-white md:py-0 py-20">
       {/* Section Title */}
       <Title text="About Me" />
       <h2 className="mt-2 text-xl md:text-2xl text-[#DF5E04] capitalize">
@@ -20,7 +20,7 @@ const About = () => {
         </div>
 
         {/* Right: About text */}
-        <div className="right flex-1 leading-8 text-gray-400 text-base md:text-lg">
+        <div className="right flex-1  lg:leading-8 text-gray-400 text-base md:text-lg">
           <p className="mb-6">
             I am a passionate MERN Stack Front-End Developer with a strong focus on building modern, responsive, and user-friendly web applications. I specialize in creating clean UI and smooth user experiences using React.js, JavaScript, HTML, and CSS, along with modern styling frameworks.
           </p>

@@ -7,32 +7,29 @@ import Contact from './Contact'
 
 import '../App.css'
 
+
 const Home = () => {
-    return (
-        <div>
-            <Navbar />
+  return (
+    <div className="bg-[#121212] text-white scroll-smooth">
+      <Navbar />
 
-            {/* Home / Hero Section */}
-            <section id="home" className='h-screen  bg-[#121212] pt-20'>
-                <Heading />
-            </section>
+      <section id="home" className="min-h-screen sm:pt-24 md:pt-4 lg:pt-0 scroll-mt-24">
+        <Heading />
+      </section>
 
-            {/* About Section */}
-            <section id="about" className='h-screen  bg-[#121212]  '>
-                <About/>
-            </section>
+      <section id="about" className="sm:py-32 md:py-5 lg:py-0 scroll-mt-24">
+        <About />
+      </section>
 
-            {/* Projects Section */}
-            <section id="projects" className='h-screen pt-20  bg-[#121212]  '>
-                <Project/>
-            </section>
+      <section id="projects" className="sm:py-32 md:py-5 lg:py-0 scroll-mt-24">
+        <Project />
+      </section>
 
-            {/* Contact Section */}
-            <section id="contact" className='h-screen pt-20 bg-[#121212] '>
-                <Contact/>
-            </section>
-        </div>
-    )
+      <section id="contact" className="sm:py-32 md:py-5 lg:py-0 scroll-mt-24">
+        <Contact />
+      </section>
+    </div>
+  )
 }
 
 export default Home

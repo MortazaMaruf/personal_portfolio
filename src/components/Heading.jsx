@@ -2,12 +2,12 @@
 import React from 'react'
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa"
 import { MdOutlineFileDownload } from "react-icons/md"
-import headingImg from '../photo/removebgbw.png'
+// import headingImg from '../photo/removebgbw.png'
 import { Typewriter } from 'react-simple-typewriter'
 
 const Heading = () => {
   return (
-    <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center justify-between h-screen text-white px-4 pt-10 md:px-0">
+    <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center justify-between h-screen text-white px-4 pt-35 lg:pt-10 md:px-0">
       
       {/* Left Side */}
       <div className="left flex-1 flex flex-col gap-6 md:gap-10">
@@ -39,7 +39,7 @@ const Heading = () => {
         {/* CV Button */}
         <div className="mt-6">
           <a
-            href="/path-to-cv.pdf"
+            href="../../public/CV/marufCV.pdf"
             download
             className="inline-flex items-center gap-2 px-6 py-2 border border-[#DF5E04] rounded-xl text-white hover:bg-[#DF5E04] transition-all duration-200"
           >

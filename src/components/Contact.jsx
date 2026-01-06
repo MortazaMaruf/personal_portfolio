@@ -25,13 +25,13 @@ const Contact = () => {
   }
 
   return (
-    <div className="w-11/12 mx-auto lg:py-20" id="contact">
+    <div className="w-11/12 mx-auto sm:py-50  md:py-5" id="contact">
       <Title text="Contact Me" />
 
       <div className="flex flex-col md:flex-row gap-12 mt-16">
         {/* Left side: Contact info / social links */}
         <div className="md:w-1/3 flex flex-col gap-6">
-          <h2 className="text-4xl font-bold text-[#DF5E04]">Let's Connect</h2>
+          <h2 className="text-xl font-bold text-[#DF5E04]">Let's Connect</h2>
           <p className="text-gray-400 text-xl">
             I'm open to freelance opportunities or collaboration. Feel free to contact me.
           </p>
