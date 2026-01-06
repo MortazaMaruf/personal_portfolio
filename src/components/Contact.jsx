@@ -38,17 +38,29 @@ const Contact = () => {
             I'm open to freelance opportunities or collaboration. Feel free to contact me.
           </p>
 
-          <div className="flex gap-10 mt-4 text-white text-2xl">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maruffdev@gmail.com&su=Portfolio%20Contact&body=Hi%20Maruf," target="_blank" rel="noreferrer" className='hover:text-[#DF5E04] transition-all duration-200'>
-              <SiGmail size={25} />
-            </a>
-           <a href="https://www.facebook.com/share/17mi6gqoRQ/" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'><FaFacebook size={25} /></a>
+          <div className="flex  gap-10 mt-4 text-white text-2xl">
+           
+           <a href="https://www.facebook.com/share/17mi6gqoRQ/" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'>
+           <FaFacebook size={25} />
+
+           </a>
             <a href="https://www.instagram.com/mortaza_maruf?igsh=aHJuZ3M3d285aXYz" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'><FaInstagramSquare size={25} /></a>
             <a href="https://wa.me/8801725133651?text=Hi%20Maruf%2C%20I%20saw%20your%20portfolio!
 " target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'><IoLogoWhatsapp size={25} /></a>
-            <a href="tel:0881636024882" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'><FaPhoneSquareAlt size={25} /></a>
+           
             
           </div>
+           <div className='my-10 '>
+              
+             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maruffdev@gmail.com&su=Portfolio%20Contact&body=Hi%20Maruf," target="_blank" rel="noreferrer" className='hover:text-[#DF5E04] transition-all duration-200 flex items-center gap-5 my-5 '>
+              <SiGmail size={25} />
+              <span className='text-gray-400 text-xl'>Gamil: maruffdevgmail.com</span>
+            </a>
+            <a href="tel:0881636024882" target='_blank' className='hover:text-[#DF5E04] transition-all 
+            duration-200 flex items-center gap-5 my-5'><FaPhoneSquareAlt size={25} />
+            <span className='text-gray-400 text-xl'>Phone: +0881636024882</span>
+            </a>
+            </div>
         </div>
 
         {/* Right side: Contact form */}
