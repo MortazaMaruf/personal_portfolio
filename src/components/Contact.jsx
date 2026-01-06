@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Title from './Title'
-import { FaGithub,  FaInstagramSquare,FaFacebook } from 'react-icons/fa'
+import { FaGithub,  FaInstagramSquare,FaFacebook,FaPhoneSquareAlt } from 'react-icons/fa'
+import { IoLogoWhatsapp } from "react-icons/io";
+import { SiGmail } from "react-icons/si";
 
 
 
@@ -37,11 +39,15 @@ const Contact = () => {
           </p>
 
           <div className="flex gap-10 mt-4 text-white text-2xl">
-            <a href="https://github.com/MortazaMaruf" target="_blank" rel="noreferrer" className='hover:text-[#DF5E04] transition-all duration-200'>
-              <FaGithub size={25} />
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maruffdev@gmail.com&su=Portfolio%20Contact&body=Hi%20Maruf," target="_blank" rel="noreferrer" className='hover:text-[#DF5E04] transition-all duration-200'>
+              <SiGmail size={25} />
             </a>
            <a href="https://www.facebook.com/share/17mi6gqoRQ/" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'><FaFacebook size={25} /></a>
             <a href="https://www.instagram.com/mortaza_maruf?igsh=aHJuZ3M3d285aXYz" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'><FaInstagramSquare size={25} /></a>
+            <a href="https://wa.me/8801725133651?text=Hi%20Maruf%2C%20I%20saw%20your%20portfolio!
+" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'><IoLogoWhatsapp size={25} /></a>
+            <a href="tel:0881636024882" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'><FaPhoneSquareAlt size={25} /></a>
+            
           </div>
         </div>
 
