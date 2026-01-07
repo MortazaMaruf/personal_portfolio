@@ -72,7 +72,7 @@ const Progress = () => {
         {skills.map((skill, index) => (
           <div key={index} className="flex flex-col items-center gap-6">
             {/* Icon */}
-            <div className={`border-2 border-[#DF5E04] p-6 rounded-full transition-all duration-300 hover:bg-[#DF5E04] hover:scale-110 cursor-pointer ${skill.color}`}>
+            <div className={`border-2 border-[#DF5E04] p-6 rounded-full transition-all duration-300 hover:bg-[#DF5E04]  hover:scale-110 cursor-pointer ${skill.color}`}>
               {skill.icon}
             </div>
 

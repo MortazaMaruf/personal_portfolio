@@ -12,7 +12,7 @@ const Heading = () => {
       
       {/* Left Side */}
       <div className="left flex-1 flex flex-col gap-6 md:gap-10">
-        <h1 className="text-4xl md:text-5xl font-bold">
+        <h1 className="text-4xl md:text-5xl font-bold flex flex-col lg:flex-row gap-5">
           Hi, I'm{' '}
           <span className="text-[#DF5E04]">
             <Typewriter

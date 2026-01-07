@@ -6,10 +6,12 @@ import About from "./About"
 import Project from "./Project"
 import Contact from "./Contact"
 import ScrollProgress from "./ScrollProgress"
+import Cursor from "./Cursor"
 
 const Home = () => {
   return (
     <div className="bg-[#121212] text-white scroll-smooth hide-scrollbar   relative" >
+      <Cursor/>
       <Navbar />
 
     

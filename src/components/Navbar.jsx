@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef,useLayoutEffect } from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import { FaGithub, FaBars, FaTimes } from "react-icons/fa"
+import { gsap } from "gsap";
 import './Navbar.css'
 
 const Navbar = () => {
   const [active, setActive] = useState('home')
   const [isOpen, setIsOpen] = useState(false)
-
+  
   const links = [
     { name: 'Home', to: 'home' },
     { name: 'About Me', to: 'about' },
@@ -38,20 +39,49 @@ const Navbar = () => {
       }
     }
 
+  
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+  const logoRef = useRef([]);
+   logoRef.current = []; // reset on every render
+
+  const addToRefs = (el) => {
+    if (el && !logoRef.current.includes(el)) {
+      logoRef.current.push(el);
+    }
+  };
+  useLayoutEffect(()=>{
+    let ctx =gsap.context( () => {
+      const tl = gsap.timeline();
+      tl.from(logoRef.current[0]  ,{
+        y:-100,
+        duration:.2,
+        delay:.4,
+        opacity:0
+      })
+      tl.from(logoRef.current[1],{
+        x:-100,
+        duration:.2,
+        opacity:0,
+      })
+     
+    })
+    return ()=> ctx.revert();
+    
+  },[])
 
   return (
     <div className='bg-[#121212] border-b border-[#DF5E04] fixed w-full z-50'>
-      <div className='w-11/12 mx-auto flex items-center justify-between py-3'>
+      <div className='w-11/12 mx-auto flex items-center justify-between  py-3'>
         {/* Logo */}
-        <div
-          className='cursor-pointer hover:text-[#84A98C] text-[#DF5E04]'
+        <div 
+          className='cursor-pointer hover:text-[#84A98C]  text-[#DF5E04] logo hover:scale-105'
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <h1 className='text-2xl logo tracking-tighter'>mortaza.</h1>
-          <h1 className='text-5xl logo tracking-tighter'>maruf.</h1>
+          <h1 ref={addToRefs}  className='text-2xl logo tracking-wide'>mortaza.</h1>
+          <h1 ref={addToRefs} className='text-5xl logo tracking-wider'>maruf.</h1>
         </div>
 
         {/* Desktop Links */}
