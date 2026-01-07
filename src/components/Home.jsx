@@ -10,7 +10,7 @@ import Cursor from "./Cursor"
 
 const Home = () => {
   return (
-    <div className="bg-[#121212] text-white scroll-smooth hide-scrollbar   relative" >
+    <div className="bg-[#121212] text-white scroll-smooth hide-scrollbar relative" >
       <Cursor/>
       <Navbar />
 

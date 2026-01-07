@@ -1,17 +1,17 @@
 import React from 'react'
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { div } from 'framer-motion/client';
 const Cursor = () => {
        const cursorRef =  useRef(null)
-        useEffect(()=> {
-          const cursorMove = (e)=>{
+        useLayoutEffect(()=> {
+          const cursorMove = (dts)=>{
               gsap.from(cursorRef.current,{
-                x:e.x,
-                y:e.y,
+                x:dts.x,
+                y:dts.y,
                 duration:0.5,
                 delay:0.04,
-                ease:"power3.inOut",
+                ease:"elastic.out(1.2,0.4)",
                 opacity:1,
                 
             })
@@ -19,6 +19,7 @@ const Cursor = () => {
           const cursorLeave = () => {
             gsap.to(cursorRef.current,{
                 opacity:0,
+                delay:.04
             })
           };
           
@@ -33,7 +34,7 @@ const Cursor = () => {
         
         <div 
      ref={cursorRef}
-    className='fixed z-100 w-4 h-4 opacity-0 bg-[#DF5E04] rounded-full cursor '>
+    className='fixed z-100 w-4 h-4 opacity-0 bg-[#DF5E04] rounded-full'>
       
     </div>
     </div>
