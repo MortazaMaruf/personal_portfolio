@@ -36,7 +36,7 @@ const Cursor = () => {
         
         <div 
      ref={cursorRef}
-    className='fixed z-50 w-4 h-4 opacity-0 bg-[#DF5E04] rounded-full pointer-events-none'>
+    className=' hidden lg:block fixed z-50 w-4 h-4 opacity-0 bg-[#DF5E04] rounded-full pointer-events-none '>
       
     </div>
     </div>
