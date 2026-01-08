@@ -10,7 +10,7 @@ const featuredProjects = [
   'Tic-Tac-Toe-',
   'bubble-shooter',
   'todo-list',
-  'calculator'
+  "Animate-website-with-gsap"
 ]
 
 const Project = () => {
