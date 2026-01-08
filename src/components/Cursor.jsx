@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
-
+import cursor from '../photo/cursor.png'
 const Cursor = () => {
        const cursorRef =  useRef(null)
         useLayoutEffect(()=> {
@@ -9,11 +9,11 @@ const Cursor = () => {
               gsap.from(cursorRef.current,{
                 x:dts.x,
                 y:dts.y,
-                duration:0.5,
-                delay:0.04,
-                ease:"power3.out",
+                // duration:-1,
+                // delay:0.04,
+                // ease:"power.out",
                 opacity:1,
-                skew:20
+                // skew:20
                 
             })
           }
@@ -36,8 +36,8 @@ const Cursor = () => {
         
         <div 
      ref={cursorRef}
-    className=' hidden lg:block fixed z-50 w-4 h-4 opacity-0 bg-[#DF5E04] rounded-full pointer-events-none '>
-      
+    className=' hidden lg:block fixed z-50 w-10 opacity-0  rounded-full pointer-events-none '>
+      <img src={cursor} alt="" />
     </div>
     </div>
   )
