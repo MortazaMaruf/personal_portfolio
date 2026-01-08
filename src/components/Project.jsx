@@ -7,10 +7,12 @@ import { GoArrowUpRight } from "react-icons/go"
 const featuredProjects = [
   'Clothing-Store',
   'Car-rental',
+  "Animate-website-with-gsap",
   'Tic-Tac-Toe-',
   'bubble-shooter',
   'todo-list',
-  "Animate-website-with-gsap"
+  "calculator"
+  
 ]
 
 const Project = () => {
