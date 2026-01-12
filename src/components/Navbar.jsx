@@ -147,7 +147,7 @@ useGSAP(()=>{
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className='md:hidden bg-[#121212] w-full flex flex-col items-center gap-6 py-6 border-t border-[#DF5E04]'>
+        <div className='md:hidden bg-[#121212] w-full flex flex-col items-center gap-6 py-6 border-b border-[#DF5E04]'>
           {links.map(link => (
             <ScrollLink
               key={link.to}
