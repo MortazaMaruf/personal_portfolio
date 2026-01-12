@@ -96,7 +96,7 @@ const Heading = () => {
         </div>
 
         {/* Stats */}
-        <div className="flex gap-6 mt-6 bg-gray-700/30 rounded-2xl p-4 w-full max-w-md stat">
+        <div className="flex items-center justify-center gap-6 mt-6 bg-gray-700/30 rounded-2xl p-4 w-full max-w-md stat">
           <div className="border-r border-gray-500 pr-6">
             <h2 className="text-2xl text-[#DF5E04] font-bold">2+</h2>
             <p className="text-lg">Years Experience</p>
