@@ -85,7 +85,7 @@ useGSAP(()=>{
   })
 })
   return (
-    <div className='bg-[#121212] border-b border-[#DF5E04] fixed w-full z-40'>
+    <div className='bg-[#121212]  fixed w-full z-40'>
       <div className='w-11/12 mx-auto flex items-center justify-between  py-3'>
         {/* Logo */}
         <div 
