@@ -20,7 +20,7 @@ const Heading = () => {
       
     })
     tl.from(".headingName",{
-        y:50,
+        x:50,
         duration:.1,
         opacity:0,  
     })
@@ -61,15 +61,15 @@ const Heading = () => {
       <div className="left flex-1 flex flex-col gap-3 md:gap-10">
         <h1 className="headingText text-4xl md:text-5xl font-bold flex flex-col lg:flex-row gap-5">
           Hi, I'm{' '}
-          <span className="headingName text-[#DF5E04]">
+          <span className="headingName  bg-linear-to-r text-transparent bg-clip-text from-white to-[#DF5E04]">
             <Typewriter
-              words={['Mortaza Maruf', 'Web Developer', 'Frontend Developer']}
+              words={['Mortaza Maruf',  'Frontend','Web Developer']}
               loop={true}
               cursor
-              cursorStyle="_"
-              typeSpeed={100}
+              cursorStyle="|"
+              typeSpeed={75}
               deleteSpeed={75}
-              delaySpeed={1000}
+              delaySpeed={500}
             />
           </span>
         </h1>
