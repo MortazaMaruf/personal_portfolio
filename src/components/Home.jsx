@@ -5,7 +5,6 @@ import Heading from "./Heading"
 import About from "./About"
 import Project from "./Project"
 import Contact from "./Contact"
-import ScrollProgress from "./ScrollProgress"
 import Cursor from "./Cursor"
 
 const Home = () => {
@@ -15,7 +14,7 @@ const Home = () => {
       <Navbar />
 
     
-      <ScrollProgress />
+     
 
       {/* Sections */}
       <section id="home" className="min-h-screen sm:pt-24 md:pt-4 lg:pt-0 scroll-mt-24">

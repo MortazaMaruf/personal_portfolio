@@ -1,6 +1,7 @@
 import React, { useState, useEffect,useRef,useLayoutEffect } from 'react'
 import { Link as ScrollLink } from 'react-scroll'
 import { FaGithub, FaBars, FaTimes } from "react-icons/fa"
+import ScrollProgress from "./ScrollProgress"
 import { gsap } from "gsap";
 import './Navbar.css'
 import { useGSAP } from '@gsap/react';
@@ -164,6 +165,9 @@ useGSAP(()=>{
           ))}
         </div>
       )}
+       
+        <ScrollProgress />
+      
     </div>
   )
 }
