@@ -4,27 +4,66 @@ import Title from './Title'
 import Progress from './Progress'
 import AnimatedImage from './AnimateImage'
 import aboutImg from '../photo/aboutphoto.jpeg'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
 
 const About = () => {
+
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top 70%",
+
+      }
+    })
+    tl.from(".title", {
+      x: 50,
+      duration: .2,
+      delay: .3,
+      opacity: 0,
+
+    })
+    tl.from(".title-dics", {
+      x: -50,
+      duration: .2,
+      opacity: 0,
+    })
+    tl.from(".leftabout",{
+      y:-50,
+      duration:.2,
+      opacity:0,
+    })
+    tl.from(".rightabout",{
+      y:-50,
+      duration:.2,
+      opacity:0
+    })
+  })
   return (
-    <div className="w-11/12 mx-auto text-white md:py-0 py-30">
+    <div className="w-11/12 mx-auto text-white md:py-0 py-30 about">
       {/* Section Title */}
-      <Title text="About Me" />
-      <h2 className="mt-2 text-xl md:text-2xl text-[#DF5E04] capitalize">
+      <div className='title'>
+
+        <Title text="About Me" />
+      </div>
+      <h2 className="mt-2 text-xl md:text-2xl text-[#DF5E04] capitalize title-dics">
         User Interface and User Experience
       </h2>
 
       {/* Content */}
       <div className="flex flex-col md:flex-row items-center justify-between mt-20 gap-10">
         {/* Left: Illustration / image placeholder */}
-        <div className="left flex-1 flex justify-center">
-        
-                  <AnimatedImage Img={aboutImg}/>
+        <div className="leftabout flex-1 flex justify-center ">
+
+          <AnimatedImage Img={aboutImg} />
         </div>
 
         {/* Right: About text */}
-        <div className="right flex-1  lg:leading-8 text-gray-400 text-base md:text-lg">
+        <div className="rightabout flex-1  lg:leading-8 text-gray-400 text-base md:text-lg">
           <p className="mb-6">
             I am a passionate MERN Stack Front-End Developer with a strong focus on building modern, responsive, and user-friendly web applications. I specialize in creating clean UI and smooth user experiences using React.js, JavaScript, HTML, and CSS, along with modern styling frameworks.
           </p>
@@ -40,9 +79,7 @@ const About = () => {
       </div>
 
       {/* Skills Section */}
-      <div className="my-16 text-center">
-        <Title text="Skills" />
-      </div>
+      
 
       {/* Progress Bars */}
       <Progress />

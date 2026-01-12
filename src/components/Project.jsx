@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 import Title from './Title'
 import { MdOutlineStar } from "react-icons/md"
 import { GoArrowUpRight } from "react-icons/go"
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
 const featuredProjects = [
   'Clothing-Store',
@@ -36,17 +39,40 @@ const Project = () => {
 
     return () => clearTimeout(timer)
   }, [])
+    gsap.registerPlugin(ScrollTrigger)
+    useGSAP(()=>{
+      const tl =gsap.timeline({
+     scrollTrigger: {
+        trigger: ".projects",
+        // markers: true,
+        start: "top 70%",
 
+      }
+      })
+      tl.from(".projectTitle",{
+        x:-50,
+        duration:.3,
+        delay:.2,
+        opacity:0
+      })
+      tl.from(".projectCard",{
+        y:-50,
+        duration:.3,
+        opacity:0
+      })
+    })
   return (
-    <div className="w-11/12 mx-auto py-24 md:py-28">
-      <Title text="Projects" />
+    <div className="w-11/12 mx-auto py-24 md:py-28 projects">
+     <div className='projectTitle'>
+       <Title text="Projects" />
+     </div>
 
       {loading ? (
         <div className="flex items-center justify-center h-[40vh]">
           <span className="loading loading-ring loading-xl text-[#DF5E04]"></span>
         </div>
       ) : (
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 projectCard">
           {projects.map(project => (
             <div
               key={project.id}

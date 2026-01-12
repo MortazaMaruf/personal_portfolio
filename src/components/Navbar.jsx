@@ -3,6 +3,7 @@ import { Link as ScrollLink } from 'react-scroll'
 import { FaGithub, FaBars, FaTimes } from "react-icons/fa"
 import { gsap } from "gsap";
 import './Navbar.css'
+import { useGSAP } from '@gsap/react';
 
 const Navbar = () => {
   const [active, setActive] = useState('home')
@@ -57,13 +58,13 @@ const Navbar = () => {
       const tl = gsap.timeline();
       tl.from(logoRef.current[0]  ,{
         y:-100,
-        duration:.2,
+        duration:.1,
         delay:.4,
         opacity:0
       })
       tl.from(logoRef.current[1],{
         x:-100,
-        duration:.2,
+        duration:.1,
         opacity:0,
       })
      
@@ -71,7 +72,17 @@ const Navbar = () => {
     return ()=> ctx.revert();
     
   },[])
-
+useGSAP(()=>{
+  gsap.from(".navItems",{
+    y:50,
+    duration:.2,
+    delay:.4,
+    opacity:0,
+    stagger:{
+      amount:0.4
+    }
+  })
+})
   return (
     <div className='bg-[#121212] border-b border-[#DF5E04] fixed w-full z-40'>
       <div className='w-11/12 mx-auto flex items-center justify-between  py-3'>
@@ -85,8 +96,9 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Links */}
-        <nav className='hidden md:flex gap-10 items-center justify-center text-xl capitalize text-white'>
-          {links.map(link => (
+        <nav className='hidden md:flex gap-10 items-center justify-center text-xl capitalize navItems text-white '>
+      
+            {links.map(link => (
             <ScrollLink
               key={link.to}
               to={link.to}
@@ -103,14 +115,16 @@ const Navbar = () => {
         </nav>
 
         {/* GitHub icon */}
-        <a
-          className='text-white hidden md:flex hover:text-[#DF5E04] transition-all duration-200'
+      <div className='navItems'>
+          <a
+          className='text-white hidden  md:flex hover:text-[#DF5E04] transition-all duration-200'
           href="https://github.com/MortazaMaruf"
           target='_blank'
           rel="noreferrer"
         >
           <FaGithub size={25} />
         </a>
+      </div>
 
         {/* Mobile Menu Button */}
         <div className='md:hidden flex items-center gap-6'>

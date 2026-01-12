@@ -3,6 +3,9 @@ import Title from './Title'
 import { FaGithub,  FaInstagramSquare,FaFacebook,FaPhoneSquareAlt } from 'react-icons/fa'
 import { IoLogoWhatsapp } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+import gsap from 'gsap';
 
 
 
@@ -25,20 +28,70 @@ const Contact = () => {
     setSubmitted(true)
     setFormData({ name: '', email: '', message: '' })
   }
+    gsap.registerPlugin(ScrollTrigger)
+    
+  useGSAP(()=>{
+    const tl = gsap.timeline({
+          scrollTrigger: {
+        trigger: "#contact",
+        // markers: true,
+        start: "top 70%",
+      }
+     
+    })
+     tl.from(".contactTitle",{
+        x:50,
+        duration:.2,
+        delay:.3,
+        opacity:0
+      })
+     tl.from(".contact-dics",{
+        x:-50,
+        duration:.2,
+        opacity:0
+      })
+     tl.from(".contact-param",{
+        y:-50,
+        duration:.2,
+        opacity:0
+      })
+     tl.from(".contact-social",{
+        x:50,
+        duration:.2,
+        opacity:0
+      })
+     tl.from(".contact-phn",{
+        x:-50,
+        duration:.2,
+        opacity:0
+      })
+      tl.from(".contact-form",{
+        x:50,
+        duration:.2,
+        
+        opacity:0
+      })
+  })
 
   return (
     <div className="w-11/12 mx-auto sm:py-50  md:py-5" id="contact">
-      <Title text="Contact Me" />
+      <div className='contactTitle'>
+        <Title text="Contact Me" />
+      </div>
 
       <div className="flex flex-col md:flex-row gap-12 mt-16">
         {/* Left side: Contact info / social links */}
         <div className="md:w-1/3 flex flex-col gap-6">
+        <div className='contact-dics'>
           <h2 className="text-xl font-bold text-[#DF5E04]">Let's Connect</h2>
-          <p className="text-gray-400 text-xl">
+        </div>
+          <div className='contact-param'>
+            <p className="text-gray-400 text-xl">
             I'm open to freelance opportunities or collaboration. Feel free to contact me.
           </p>
+          </div>
 
-          <div className="flex  gap-10 mt-4 text-white text-2xl">
+          <div className="flex  gap-10 mt-4 text-white text-2xl contact-social">
            
            <a href="https://www.facebook.com/share/17mi6gqoRQ/" target='_blank' className='hover:text-[#DF5E04] transition-all duration-200'>
            <FaFacebook size={25} />
@@ -50,7 +103,7 @@ const Contact = () => {
            
             
           </div>
-           <div className='my-10 '>
+           <div className='my-10 contact-phn '>
               
              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=maruffdev@gmail.com&su=Portfolio%20Contact&body=Hi%20Maruf," target="_blank" rel="noreferrer" className='hover:text-[#DF5E04] transition-all duration-200 flex items-center gap-5 my-5 '>
               <SiGmail size={25} />
@@ -64,7 +117,7 @@ const Contact = () => {
         </div>
 
         {/* Right side: Contact form */}
-        <div className="md:w-2/3 bg-gray-700/30 p-8 rounded-xl shadow-lg">
+        <div className="md:w-2/3 bg-gray-700/30 p-8 rounded-xl shadow-lg contact-form">
           {submitted ? (
             <div className="text-center text-white">
               <h3 className="text-2xl font-bold text-[#DF5E04]">Thank you!</h3>
