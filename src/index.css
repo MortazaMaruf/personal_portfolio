@@ -12,3 +12,12 @@
 *{
   cursor: none;
 }
+::selection {
+  background:#DF5E04;
+  color: black;
+}
+
+::-moz-selection {
+  background:#DF5E04;
+  color: black;
+}
